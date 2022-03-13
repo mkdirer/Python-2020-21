@@ -55,8 +55,10 @@ for i in range(10):
 print(s1)
 
 print("a)")
-#for i in range(10):
- #s2.setdefault(lis[i], []).append()
+for i in range(20):
+    s2.setdefault(lis[i], []).append(z for z,v in enumerate(lis) if lis[i]==v)
+
+print(s2)
 
 #4
 print("zadanie 4")
