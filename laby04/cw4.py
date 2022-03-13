@@ -65,7 +65,7 @@ print("zadanie 4")
 
 def ifPalindrome(a):
   a_string = str(a)
-  if a_string == a_string[::1]:
+  if a_string == a_string[::-1]:
     return True
   else:
     return False
