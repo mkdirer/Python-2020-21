@@ -50,7 +50,7 @@ c[1]='7,8,9'
 print(c,k)
 print(id(c), id(k))
 
-c[-1][1] = '7,8,9'
+c[-1][1] = '7,7,7'
 print(c,k)
 
 c=copy.deepcopy(k)
@@ -58,7 +58,7 @@ c[1]='7,8,9'
 print(c,k)
 print(id(c), id(k))
 
-c[-1][1] = '7,8,9'
+c[-1][1] = '8,8,8'
 print(c,k)
 
 print("******************")
@@ -116,6 +116,8 @@ z[3].append(1)
 
 print(z)
 
+print("******************")
+
 z=[[] for i in range(10)]
 z[3].append(1)
 
@@ -137,12 +139,15 @@ k = list(range(10))
 print(k)
 
 k = list(range(3,10))
+print(k)
 k = list(range(3,10,2))
+print(k)
 k = list(range(10,0,-1))
 print(k)
 k = list(range(0,10,-1))
 print(k)
 k=[i for i in range(10)]
+print(k)
 
 print("******************")
 z = [8,0,17,1,10,13,19,13,10,3,]
@@ -164,6 +169,7 @@ print(k)
 
 for i in k:
   if i%2:  #if not i%2: 
+    #print("nowy")
     break
 else:
   print('kiedy?') #to wyświetli się wtedy kiedy nigdy nie dojdzie do przewania pętli ifem, break 
@@ -218,27 +224,37 @@ print(c)
 
 print("*********zadanie 1*********")
 
+import copy
 k = [8,0,17,1,10,13,19,13,10,3,]
 
 #for i,v in enumerate(k):
   #del k[i] if v>0
-d = len(k)
-
-for i in range(1,d-1):
+l = k[:]
+z = 0
+for i in range(len(k)):
   if k[i]==10:
-    del k[i]
+    del l[i-z]
+    z+=1
     #k.remove(i)
 print(k)
+print(l)
 
 print("*********zadanie 2*********")
+'''
 k = [8,0,17,1,10,13,19,13,10,3,]
+l = copy.deepcopy(k)
+z = 0
+i = 0
 
-i =1
 while(i<len(k)):
-  if k[i]==10:
-    del k[i]
-  ++i
+    if k[i]==10:
+        del l[i-z]
+        #l.remove(i-z)
+        z+=1
+    ++i
 print(k)
+print(l)
+'''
 
 print("*********zadanie 3*********")
 
@@ -252,4 +268,45 @@ for i in range(1,d,2):
 print('\n')
 
 print("*********zadanie 4*********")
+#print(help(enumerate))
+for i,v in enumerate(k):
+    print(k[i], end=', ') if i%2 else None 
 
+print('\n')
+
+print("*********zadanie 5*********")
+
+k = [8,0,17,1,10,13,19,13,10,3,]
+
+d = len(k)
+
+for i in range(d-1,0,-2):
+  print(k[i], end=', ')
+
+print('\n')
+
+print("*********zadanie 6*********")
+#print(help(enumerate))
+for i,v in enumerate(k):
+    print(k[abs(i-len(k))], end=', ') if i%2 else None 
+
+print("*********zadanie 7*********")
+import random
+#print(help(enumerate))
+l = [(i, v) for i,v in enumerate(k)]
+
+print(l)
+
+print("*********zadanie 8*********")
+l.sort(key = lambda x: x[1])
+print(l)
+
+print("*********zadanie 9*********")
+import random
+#print(help(enumerate))
+x = [(i, v) for i,v in enumerate(k) if v%2 == 0]
+print(x)
+
+print("*********zadanie 10*********")
+x = [(i, v) for i,v in enumerate(k) if i<v]+[(v, i) for i,v in enumerate(k) if v<i]
+print(x)
