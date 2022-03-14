@@ -54,9 +54,9 @@ def cw1(psl, data, mk):
     print("pesel ok")
 
 
-data=date(1999, 9, 30)
-pesel= '99093006211'
-plec='mezczyzna'
+data=date(1997, 2, 21)
+pesel= '97022124323'
+plec='kobieta'
 
 cw1(pesel, data, plec)
 
